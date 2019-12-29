@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Dec 26 21:20:03 2019
-
-@author: dell
-"""
 try :
      from PIL import Image
 except ImportError:
@@ -27,13 +22,12 @@ def save_images(pages):
         text_file.close()
         print(text_data1)  
         index += 1      
-file_name='F:\\python\\aemigiance_training\\ocr_recognizaation_project\\Akrati_Sharma_Hired_Certificate.pdf'
+file_name='F:\\python\\aemigiance_training\\ocr_recognizaation_project\\img.png'
 img_type=file_name.split('.')[-1]
 if img_type=='pdf':
      pages=convert_from_path('F:\\python\\aemigiance_training\\ocr_recognizaation_project\\uppsc_computeroperator.pdf',
      fmt='jpg',thread_count=1,dpi=200)
      save_images(pages)
-    
     
 else:     
      input_data=Image.open(file_name)
