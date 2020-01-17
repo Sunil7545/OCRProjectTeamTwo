@@ -4,6 +4,9 @@ Created on Thu Dec 26 21:20:03 2019
 
 @author: dell
 """
+import  re
+from nltk  import  FreqDist
+import matplotlib.pyplot as plt
 try :
      from PIL import Image
 except ImportError:
@@ -25,16 +28,20 @@ def save_images(pages):
         text_file=open('F:\\img2txt.txt','w+')
         text_file.write(text_data1)
         text_file.close()
-        print(text_data1)  
-        index += 1      
-file_name='F:\\python\\aemigiance_training\\ocr_recognizaation_project\\Akrati_Sharma_Hired_Certificate.pdf'
+        print(text_data1)   
+        words=re.split("\W+",text_data1)
+        w2=list((words))
+        freq_dist=FreqDist(w2)
+        freq_dist.plot(80)
+        index += 1     
+file_name='F:\\python\\aemigiance_training\\ocr_recognizaation_project\\abhifinal_form.pdf'
+from nltk  import  FreqDist
+import matplotlib.pyplot as plt
 img_type=file_name.split('.')[-1]
 if img_type=='pdf':
-     pages=convert_from_path('F:\\python\\aemigiance_training\\ocr_recognizaation_project\\uppsc_computeroperator.pdf',
+     pages=convert_from_path('F:\\python\\aemigiance_training\\ocr_recognizaation_project\\abhifinal_form.pdf',
      fmt='jpg',thread_count=1,dpi=200)
      save_images(pages)
-    
-    
 else:     
      input_data=Image.open(file_name)
      text_data=ocr_code(input_data)
@@ -42,5 +49,8 @@ else:
      text_file.write(text_data)
      text_file.close()
      print(text_data)
-
+     words=re.split("\W+",text_data)
+     w2=list((words))
+     freq_dist=FreqDist(w2)
+     freq_dist.plot(80)
     
