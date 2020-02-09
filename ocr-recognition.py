@@ -62,8 +62,6 @@ else:
           if (words[0] == 'Total' and words[1] == 'Marks'):
                print("total",words[2])
           if(words[0] == 'Percentage'):
-               print("total",words[1])     
+               print("percentage",words[1])     
           line = f.readline()
      f.close()
-    
-    
